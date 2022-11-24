@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pricelist_tree_view_res_company_form" model="ir.ui.view">
+        <field name="name">res.company.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+		<field name="arch" type="xml">
+			<notebook>
+				<page string="Pricelist Tree View">
+					<group>
+						<field name="tree_view_pricelist_id" />
+						<field name="tree_view_pricelist2_id" />
+					</group>
+				</page>
+			</notebook>
+	        </field>
+    </record>
+</odoo>
