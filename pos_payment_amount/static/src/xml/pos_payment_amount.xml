@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" inherit_id="point_of_sale.template">
+    <t t-name="PaymentScreenStatus" t-inherit="point_of_sale.PaymentScreenStatus" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('payment-status-remaining')]" position="before">
+            <span class="label">Pagos</span>
+            <span class="amount"
+                    t-att-class="{ highlight: currentOrder.get_acum() > 0 }">
+                <t t-esc="acumText" />
+            </span>
+
+        </xpath>
+    </t>
+
+
+</templates>
+
