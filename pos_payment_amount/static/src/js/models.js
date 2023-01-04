@@ -23,6 +23,27 @@ odoo.define('pos_payment_amount.models', function (require) {
             return round_pr(acum, this.pos.currency.rounding);
         },
 
+        get_acum_no_cash: function(paymentline) {
+            console.log('paymentline', paymentline)
+            var acum = 0
+            var lines = this.paymentlines.models;
+            for (var i = 0; i < lines.length; i++) {
+                if (lines[i] === paymentline) {
+                    break;
+                } else {
+                    if (lines[i]['payment_method']['type']=='cash') {
+                        continue;
+                    } else {
+                        acum += lines[i].get_amount();
+                    }
+                }
+
+
+
+            }
+            return round_pr(acum, this.pos.currency.rounding);
+        },
+
         remove_paymentline: function(line) {
             let order = this.pos.get_order();
             var lines = order.get_orderlines();
