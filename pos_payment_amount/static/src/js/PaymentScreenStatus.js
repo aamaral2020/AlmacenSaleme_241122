@@ -18,6 +18,11 @@ odoo.define('pos_payment_amount.PaymentScreenStatus', function(require) {
                     this.currentOrder.get_acum() > 0 ? this.currentOrder.get_acum() : 0
                 );
             }
+            get acumCashText() {
+                return this.env.pos.format_currency(
+                    this.currentOrder.get_acum_cash() > 0 ? this.currentOrder.get_acum_cash() : 0
+                );
+            }
         };
 
     Registries.Component.extend(PaymentScreenStatus, PosResPaymentScreenStatus);
