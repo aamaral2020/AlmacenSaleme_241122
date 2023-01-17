@@ -78,6 +78,18 @@ odoo.define('pos_payment_amount.models', function (require) {
             }
             var pc = this.pos.config.saleme_discount_pc;
             var discount = acum_cash - (pc / 100.0 * acum_cash);
+            // discount = discount / 1.21
+
+            // product_id = this.pos.db.get_product_by_id[this.pos.config.saleme_discount_product_id[0]];
+            // console.log('product_id.....----', product_id)
+            // // console.log('product tax.....----', this.pos.config.saleme_discount_product_id.taxes_id)
+            // var tax = this.pos.taxes_by_id[product_id];
+            // console.log('tax', tax)
+            // if (tax['price_include'] == false) {
+            //     let calc_tax = (tax['amount']/100)+1;
+            //     discount = discount/(calc_tax);
+            //     discount = Math.round(discount * 100) / 100
+            // }
             return round_pr(discount, this.pos.currency.rounding);
         },
 
