@@ -49,7 +49,7 @@ odoo.define('pos_payment_amount.models', function (require) {
 
                 console.log('due line', line)
                 if (line.get_product() === product) {
-                    due += line.price;
+                    due += line.get_price_with_tax();
                 }
             });
             return round_pr(due, this.pos.currency.rounding);
