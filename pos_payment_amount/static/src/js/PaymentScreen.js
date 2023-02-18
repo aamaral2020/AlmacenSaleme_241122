@@ -8,11 +8,9 @@ odoo.define('pos_payment_amount.PaymentScreen', function(require) {
         class extends PaymentScreen {
             constructor() {
                 super(...arguments);
-                console.log('PaymentScreen inherit')
 
                 // this.click_paymentmethods(this.env.pos.config.saleme_cash_id[0]);
                 var cash_id = this.env.pos.config.saleme_cash_id;
-                console.log('cash_id', cash_id)
                 // this.addNewPaymentLine(cash_id[0]);
             }
 
